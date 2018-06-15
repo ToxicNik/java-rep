@@ -1,12 +1,17 @@
 public class BankDeposit {
 
+    private String bankName;
+    private String depositName;
     private Integer minAmount;
     private CapitalizationType capType;
-    private double yearlyInterest;
+    private Double yearlyInterest;
     private Integer maxTime;
-    private String name;
-    private double entryBonus;
+    private Double entryBonus;
     private Integer minTime;
+
+    public String getBankName() { return bankName;}
+
+    public void setBankName(String bankName) {this.bankName = bankName;}
 
     public Integer getMinAmount() {
         return minAmount;
@@ -16,7 +21,7 @@ public class BankDeposit {
         return capType;
     }
 
-    public double getYearlyInterest() {
+    public Double getYearlyInterest() {
         return yearlyInterest;
     }
 
@@ -24,11 +29,11 @@ public class BankDeposit {
         return maxTime;
     }
 
-    public String getName() {
-        return name;
+    public String getDepositName() {
+        return depositName;
     }
 
-    public double getEntryBonus() {
+    public Double getEntryBonus() {
         return entryBonus;
     }
 
@@ -44,7 +49,7 @@ public class BankDeposit {
         this.capType = capType;
     }
 
-    public void setYearlyInterest(double yearlyInterest) {
+    public void setYearlyInterest(Double yearlyInterest) {
         this.yearlyInterest = yearlyInterest;
     }
 
@@ -52,11 +57,11 @@ public class BankDeposit {
         this.maxTime = maxTime;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDepositName(String depositName) {
+        this.depositName = depositName;
     }
 
-    public void setEntryBonus(double entryBonus) {
+    public void setEntryBonus(Double entryBonus) {
         this.entryBonus = entryBonus;
     }
 

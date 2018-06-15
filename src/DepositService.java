@@ -1,7 +1,6 @@
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
-
+import java.util.Queue;
 
 
 public class DepositService {
@@ -46,34 +45,42 @@ public class DepositService {
         int count = 0;
         for (Double i : moneyFromDeposits) {
             if (max == i)
-                return bankDeposits.get(count).getName();
+                return bankDeposits.get(count).getDepositName();
             count++;
         }
         return "";
     }
 
     public static void main(String[] args){
-        BankDeposit dep0 = new BankDeposit();
-        dep0.setName("dep0");
-        dep0.setCapType(CapitalizationType.MONTH);
-        dep0.setEntryBonus(0.05);
-        dep0.setMinTime(90);
-        dep0.setMaxTime(730);
-        dep0.setMinAmount(10000);
-        dep0.setYearlyInterest(0.12);
-
-        BankDeposit dep1 = new BankDeposit();
-        dep1.setName("dep1");
-        dep1.setCapType(CapitalizationType.QUARTAL);
-        dep1.setEntryBonus(0.03);
-        dep1.setMinTime(150);
-        dep1.setMaxTime(600);
-        dep1.setMinAmount(20000);
-        dep1.setYearlyInterest(0.14);
-
-        bankDeposits.add(dep0);
-        bankDeposits.add(dep1);
-
-        System.out.println(determineTheBest(25000, 4000, 220));
+        Queue<String> output = Adapter.readTheFile();
+        int length = output.peek().length()*2;
+        StringBuffer buf = new StringBuffer(length);
+        for (int i = 0; i< 5; i++) {
+            buf.append(output.poll());
+            Adapter.addDeposit(buf);
+            buf.delete(0, length - 1);
+        }
+//        BankDeposit dep0 = new BankDeposit();
+//        dep0.setDepositName("dep0");
+//        dep0.setCapType(CapitalizationType.MONTH);
+//        dep0.setEntryBonus(0.05);
+//        dep0.setMinTime(90);
+//        dep0.setMaxTime(730);
+//        dep0.setMinAmount(10000);
+//        dep0.setYearlyInterest(0.12);
+//
+//        BankDeposit dep1 = new BankDeposit();
+//        dep1.setDepositName("dep1");
+//        dep1.setCapType(CapitalizationType.QUARTAL);
+//        dep1.setEntryBonus(0.03);
+//        dep1.setMinTime(150);
+//        dep1.setMaxTime(600);
+//        dep1.setMinAmount(20000);
+//        dep1.setYearlyInterest(0.14);
+//
+//        bankDeposits.add(dep0);
+//        bankDeposits.add(dep1);
+//
+        System.out.println(determineTheBest(130000, 4000, 220));
     }
 }
